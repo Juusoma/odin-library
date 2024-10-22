@@ -10,11 +10,37 @@ body{
     --book-transition-length: .25s;
 }
 
+button{
+    padding: 0;
+    margin: 0;
+    border: none;
+    appearance: none;
+    color: inherit;
+}
+
 .main-content{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+#button-new-book{
+    display: flex;
+    gap: 8px;
+
+    padding: 8px;
+    border: 2px solid rgb(61, 162, 46);
+    border-radius: 8px;
+    background-color: rgb(28, 145, 28);
+    margin: 32px;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+#button-new-book:hover{
+    filter: brightness(1.25);
+    cursor: pointer;
 }
 
 .library-container{
@@ -73,6 +99,7 @@ body{
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    text-align: center;
 }
 
 .book:hover .book-front-cover{
