@@ -8,6 +8,10 @@ body{
     --book-front-width: 250px;
     --book-height: 300px;
     --book-transition-length: .25s;
+
+    --title-bg-color: rgb(207, 33, 44);
+    --title-text-color: rgb(255, 255, 255);
+    --title-height: 80px;
 }
 
 button{
@@ -29,6 +33,48 @@ button:hover{
     justify-content: center;
     align-items: center;
 }
+
+.title-container{
+    position: relative;
+    background-color: var(--title-bg-color);
+    border-bottom-left-radius: calc(var(--title-height) * .5);
+    border-bottom-right-radius: calc(var(--title-height) * .5);
+    height: var(--title-height);
+    display: grid;
+    place-items: center;
+    padding: 0 32px;
+}
+
+.title-container::after{
+    z-index: -1;
+    content: "";
+    position: absolute;
+    top: 0%;
+    right: calc(var(--title-height) * -1);
+    height: calc(var(--title-height) * .5);
+    width: var(--title-height);
+	border-radius: calc(var(--title-height) * .5) 0 0 0;
+	box-shadow: calc(var(--title-height) * -.5) 0 0 0 var(--title-bg-color);
+}
+
+.title-container::before{
+    z-index: -1;
+    content: "";
+    position: absolute;
+    top: 0%;
+    left: calc(var(--title-height) * -1);
+    height: calc(var(--title-height) * .5);
+    width: var(--title-height);
+	border-radius: 0 calc(var(--title-height) * .5) 0 0;
+	box-shadow: calc(var(--title-height) * .5) 0 0 0 var(--title-bg-color);
+}
+
+.title-text{
+    color: var(--title-text-color);
+    margin: 0;
+    padding: 0;
+}
+
 
 #button-new-book{
     display: flex;
