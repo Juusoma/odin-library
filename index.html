@@ -8,6 +8,26 @@
     <script defer src="main.js"></script>
 </head>
 <body>
+    <dialog id="dialog-add-book">
+        <form method="dialog">
+            <div>
+                <label for="dialog-book-title">Title:</label>
+                <input type="text" id="dialog-book-title" name="book-title">
+            </div>
+            <div>
+                <label for="dialog-book-author">Author:</label>
+                <input type="text" id="dialog-book-author" name="book-author">
+            </div>
+            <div>
+                <label for="dialog-book-page-count">Page count:</label>
+                <input type="tel" id="dialog-book-page-count" name="book-page-count">
+            </div>
+            <div class="dialog-actions">
+                <button id="dialog-cancel" type="reset">Cancel</button>
+                <button id="dialog-submit" type="submit">Add</button>
+            </div>
+        </form>
+    </dialog>
     <div class="main-content">
         <div class="title-container">
             <h1 class="title-text">Library</h1>

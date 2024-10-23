@@ -11,15 +11,10 @@ function Book(title, author, pages, read){
   }
 }
 
-function addBookToLibrary() {
-    const title = prompt("title: ");
-    const author = prompt("author: ");
-    const pages = prompt("page count: ");
-    const read = false;
+function addBookToLibrary(title, author, pages, read = false) {
     const book = new Book(title, author, pages, read);
     myLibrary[title] = book;
     return book;
-    //console.log("Added book to library: \n", book.info());
 }
 
 const minBookSpineWidth = 40;
@@ -58,10 +53,27 @@ function createElementForBook(book){
     libraryElement.appendChild(bookElement);
 }
 
+const addBookDialog = document.querySelector("#dialog-add-book");
+const addBookForm = addBookDialog.querySelector("form");
 const newBookButtonElement = document.querySelector("#button-new-book");
 newBookButtonElement.addEventListener("click", () => {
-    const book = addBookToLibrary();
+    addBookDialog.showModal();
+});
+
+addBookForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const title = addBookForm.elements["book-title"].value;
+    const author = addBookForm.elements["book-author"].value;
+    const pages = addBookForm.elements["book-page-count"].value;
+    const read = false;
+
+    const book = addBookToLibrary(title, author, pages, read);
     createElementForBook(book);
+    addBookForm.reset();
+});
+
+addBookForm.addEventListener("reset", (e) => {
+    addBookDialog.close();
 });
 
 const libraryElement = document.querySelector(".library-container")
