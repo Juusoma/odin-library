@@ -146,15 +146,3 @@ function createDummyContent(){
 }
 
 createDummyContent();
-
-//Testing area
-/*const book_0 = new Book("The Hobbit", "J.R.R. Tolkien", 564, false);
-myLibrary["The Hobbit"] = book_0;
-createElementForBook(book_0);
-
-for(let i = 0; i < 10; i++){
-
-    const book_i = new Book("The Hobbit"+i, "J.R.R. Tolkien", 564, false);
-    myLibrary["The Hobbit"+i] = book_i;
-    createElementForBook(book_i);
-}*/
