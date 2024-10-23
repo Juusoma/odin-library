@@ -87,6 +87,17 @@ form > div{
     gap: 16px;
 }
 
+form input{
+    padding: 4px;
+    border-radius: 7px;
+    border: 2px solid rgb(171, 171, 171);
+    box-shadow: 2px 2px 4px 0 rgba(0, 0, 0, 0.15);
+}
+
+form input:focus{
+    box-shadow: 4px 4px 6px 0 rgba(0, 0, 0, .3);
+}
+
 form > .dialog-actions{
     margin-top: 32px;
     justify-content: space-evenly;
