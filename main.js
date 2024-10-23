@@ -22,10 +22,19 @@ function addBookToLibrary() {
     //console.log("Added book to library: \n", book.info());
 }
 
+const minBookSpineWidth = 40;
+const maxBookSpineWidth = 200;
+const pagesForMinSpineWidth = 100;
+const pagesForMaxSpineWidth = 1000;
+
 function createElementForBook(book){
     const bookElement = document.createElement("div");
     bookElement.classList.add("book");
     bookElement.setAttribute("data-library-key", book.title);
+    const pageInterp = Math.min(1, 
+                        Math.max((book.pages - pagesForMinSpineWidth) / (pagesForMaxSpineWidth - pagesForMinSpineWidth), 0));
+    const bookSpineWidth = Math.round(minBookSpineWidth * (1 - pageInterp) + maxBookSpineWidth * pageInterp);
+    bookElement.style.setProperty("--book-spine-width", bookSpineWidth + "px");
     bookElement.innerHTML = `
         <div class="book-spine">
             <svg class="book-spine-read-marker" style="visibility: hidden" xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px" fill="#ff0037"><path d="M200-120v-656.67q0-27 19.83-46.83 19.84-19.83 46.84-19.83h426.66q27 0 46.84 19.83Q760-803.67 760-776.67V-120L480-240 200-120Z"/></svg>
@@ -109,6 +118,13 @@ function removeBookFromLibrary(bookKey, bookElement){
     }
 }
 
-const book_0 = new Book("The Hobbit", "J.R.R. Tolkien", 264, false);
+const book_0 = new Book("The Hobbit", "J.R.R. Tolkien", 564, false);
 myLibrary["The Hobbit"] = book_0;
 createElementForBook(book_0);
+
+for(let i = 0; i < 10; i++){
+
+    const book_i = new Book("The Hobbit"+i, "J.R.R. Tolkien", 564, false);
+    myLibrary["The Hobbit"+i] = book_i;
+    createElementForBook(book_i);
+}
