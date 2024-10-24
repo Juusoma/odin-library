@@ -96,7 +96,6 @@ function libraryClicked(e){
     else{
         const readButton = e.target.closest("#button-book-read");
         if(readButton){
-           // readButton.innerHTML = readElement;
             const bookElement = readButton.closest(".book");
             if(bookElement){
                 toggleBookReadStatus(bookElement.dataset.libraryKey, bookElement);
@@ -106,7 +105,7 @@ function libraryClicked(e){
 }
 
 function toggleBookReadStatus(bookKey, bookElement){
-    if(myLibrary[bookKey]){
+    if(bookKey in myLibrary){
         const read = !myLibrary[bookKey].read;
         myLibrary[bookKey].read = read;
 
@@ -125,7 +124,7 @@ function toggleBookReadStatus(bookKey, bookElement){
 }
 
 function removeBookFromLibrary(bookKey, bookElement){
-    if(myLibrary[bookKey]){
+    if(bookKey in myLibrary){
         delete myLibrary[bookKey];
         bookElement.remove();
     }

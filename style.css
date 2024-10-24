@@ -172,16 +172,17 @@ form > .dialog-actions{
     align-items: center;
     gap: 8px;
 
-    padding: 8px 16px;
+    padding: 8px 8px;
+    height: 44px;
     border-radius: 16px;
-    border: 2px solid rgb(61, 162, 46);
-    background-color: rgb(28, 145, 28);
+    border: 2px solid #37E41B;
+    background-color: #2a9c18;
     margin: 32px;
     font-weight: bold;
 }
 
 #button-new-book:hover{
-    filter: brightness(1.25);
+    background-color: #2dad19;
 }
 
 .library-container{
